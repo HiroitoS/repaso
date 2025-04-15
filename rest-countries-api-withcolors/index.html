@@ -7,17 +7,26 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <header class="app__header wrapper">
-    <h1>Listado de paises con Javasript y el API Fetch</h1>
-    <img src="./images/icon-moon.svg" alt="Toggle dark mode"/>
+  <header class="app__header--shadow">
+    <div class="wrapper app__header">
+      <h1>Listado de paises con Javasript y el API Fetch</h1>
+      <button class="app__mode">
+        <img src="./images/icon-moon.svg" alt="Dark mode"/>
+        Dark mode
+      </button>
+    </div>
   </header>
 
-  <section class="app__filter wrapper">
-    <input type="search" class="app_search"
-    placeholder="Buscar por nimbre de pais o si capital..."
-    />
+  <section class="app__filters wrapper">
+    <div class="app__search">
+      <img src="./images/icon-search.svg" alt="Search icon"/>
+      <input 
+      type="search" 
+      placeholder="Buscar por nombre de pais o si capital..."
+      />
+    </div>
 
-    <select class="app_filters wrapper" name="" id="">
+    <select class="app_filter wrapper" name="" id="">
       <option value="">Filtrar por region</option>
       <option value="africa">Africa</option>
       <option value="americas">Americas</option>
