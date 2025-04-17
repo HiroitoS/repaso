@@ -53,7 +53,15 @@ const renderCountries = (countries) => {
   countryListElement.innerHTML = countryList
 }
 
-fetchCountries()
-.then(data=> renderCountries(data))
+//DOMContentLoaded -> es un evento del navegador que espera a que el DOM este cargando
+
+document.addEventListener('DOMContentLoaded', async () => {
+  console.log('DOM cargado')
+  const data = await fetchCountries()
+  renderCountries(data)
+})
+
+// fetchCountries()
+// .then(data=> renderCountries(data))
 
 // TODO : Reescribir async/await para la funcion 
