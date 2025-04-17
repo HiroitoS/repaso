@@ -42,6 +42,7 @@ h1{
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
+  margin-bottom: 1rem;
 }
 
 .app__header--shadow{
@@ -64,7 +65,7 @@ h1{
   padding: 1rem 0;
 }
 .app__search{
-  border: 1px solid red;
+  
 
   width: 20rem;
   display: flex;
@@ -72,15 +73,25 @@ h1{
   padding-right: 0;
   gap: 1rem;
 
-  box-shadow: 0 0 8px hsl(0, 0%, 52%);
+  box-shadow: 0 0 3px hsl(0, 0%, 52%);
 }
 .app__search input{
   border: none;
-  padding: .7rem;
+  padding: .8rem 0;
+  padding-right: .7rem;
   width: 100%;
+  outline: none;
 }
 
 
 .app_filter{
   width: 10rem;
+  padding: .8rem;
+  border: none;
+  box-shadow: 0px 0px 5px 2px hsla(0, 0%, 0%,0.1);
+
+}
+
+.app_list{
+  border: 1px solid red;
 }
