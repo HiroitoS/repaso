@@ -2,7 +2,47 @@
 
 const url = 'https://restcountries.com/v3.1/all?fields=name,flags,region,capital,population,languages,currencies,timezones'
 
+let countryData = []
+
+const searchInput = document.querySelector('.app__input')
+const  filterSelect = document.querySelector('.app__filter')
 // console.log(url)
+
+searchInput.addEventListener('input', (event) => {
+  // const value = event.target.value
+  const value = event.target.value
+  const loweredValue = value.toLowerCase()
+  
+  const filteredCountries = countryData.filter(
+    country => {
+      
+      const loweredName = country.name.common.toLowerCase()
+      const joinedCapital = country.capital.join(',')
+      const loweredCapitals = joinedCapital.toLowerCase()
+      
+      return loweredName.includes(loweredValue) || loweredCapitals.includes(loweredValue)// true o false
+      
+    }
+  )
+  renderCountries(filteredCountries)
+}) 
+
+filterSelect.addEventListener('input', (event) => {
+  // console.log(event.target.value)
+
+  const value = event.target.value
+  const loweredValue = value.toLowerCase()
+
+
+  const filteredRegion = countryData.filter(
+    country => {
+      const loweredRegion = country.region.toLowerCase()
+      return loweredRegion.includes(loweredValue)
+    }
+  )
+  renderCountries(filteredRegion)
+})
+
 
 const fetchCountries = async () => {
 
@@ -58,6 +98,9 @@ const renderCountries = (countries) => {
 document.addEventListener('DOMContentLoaded', async () => {
   console.log('DOM cargado')
   const data = await fetchCountries()
+
+  countryData = data
+
   renderCountries(data)
 })
 
