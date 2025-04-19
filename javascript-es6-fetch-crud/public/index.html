@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD de Peliculas con json-server</title>
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+>
+</head>
+<body>
+  <nav class="container-fluid">
+    <ul>
+      <li>
+        <strong>CRUD de Peliculas con json-server</strong>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        Nuevo Producto
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="grid">
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Imagen</th>
+              <th>Nombre</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>
+                <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg" alt=""/>
+              </td>
+              <td>Spiderman</td>
+              <td>1</td>
+              <td>Acciones</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <form action="">
+          <h2>Nueva Pelicula</h2>
+
+          <input type="text" name="nombre" placeholder="Name" required>
+          <input type="text" name="image" placeholder="Imagen" required>
+          <input type="date" name="estreno" placeholder="Estreno" required>
+          <select name="genero" required id="">
+            <option value="">Selecciona un genero</option>
+            <option value="">Comedia</option>
+            <option value="">Acción</option>
+            <option value="">Animacion</option>
+            <option value="">Aventura</option>
+          </select>
+          <textarea name="resumen" placeholder="Resumen" id=""></textarea>
+          <input type="submit" value="Guardar">
+        </form>
+      </div>
+    </div>
+  </div>
+  <footer class="container-fluid">
+    Hiroito Sánchez - Abril 2025
+  </footer>
+  <script src= "./main.js"type="module"></script>
+</body>
+</html>
