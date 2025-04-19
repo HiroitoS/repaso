@@ -1,12 +1,17 @@
 // console.log('Hola JS')
 
-const url = 'https://restcountries.com/v3.1/all?fields=name,flags,region,capital,population,languages,currencies,timezones'
+import { renderCountries, renderResults } from './utils.js'
+
+import fetchCountries from './services.js'
+import MiNombre, { regions } from './constants.js'
+
+console.log(MiNombre)
 
 let countryData = []
 
 const searchInput = document.querySelector('.app__input')
 const  filterSelect = document.querySelector('.app__filter')
-const resultsDiv = document.querySelector('.app__resultado')
+
 // console.log(url)
 
 searchInput.addEventListener('input', (event) => {
@@ -46,23 +51,6 @@ filterSelect.addEventListener('input', (event) => {
   renderResults(filteredRegion)
 })
 
-
-const fetchCountries = async () => {
-
-  try{
-
-    const response = await fetch(url)// promesa
-
-    if(!response.ok){
-      throw new Error('Error en la peticion', response.status)
-    }
-    const json = await response.json()
-
-    return json    
-  }catch(error){
-    console.log('Error en la peticion', error)
-  }
-}
 //DOMContentLoaded -> es un evento del navegador que espera a que el DOM este cargando
 
 document.addEventListener('DOMContentLoaded', async () => {
