@@ -1,15 +1,14 @@
 //console.log("Hello World!")
+import { renderPeliculas } from './peliculas.js'
+import { fetchPeliculas } from './services.js'
+document.addEventListener('DOMContentLoaded', async (event) => {
+ 
+  //Usnado async/await
 
-const fetchPeliculas = async () => {
-  const url = 'http://localhost:3000/peliculas'
+  const peliculas = await fetchPeliculas()
 
-  const reponse = await fetch(url)// por defecto es GET
+  console.log(peliculas)
 
-  const data = await reponse.json()
+  renderPeliculas(peliculas)
 
-  console.log(data)
-
-
-
-}
-fetchPeliculas()
+})
