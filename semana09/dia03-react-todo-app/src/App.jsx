@@ -1,23 +1,23 @@
 import React, { useState } from 'react'
 
 const App = () => {
-  const DEFAULT_TODOS = [ 
-    { 
-      "id": 1, 
-      "title": "delectus aut autem", 
-      "completed": false 
-    }, 
-    { "id": 2, 
-      "title": "quis ut nam facilis et officia qui", 
-      "completed": true 
-    }, 
-    { "id": 3, 
-      "title": "fugiat veniam minus", 
-      "completed": false 
-    }
-  ]
+  // const DEFAULT_TODOS = [ 
+  //   { 
+  //     "id": 1, 
+  //     "title": "delectus aut autem", 
+  //     "completed": false 
+  //   }, 
+  //   { "id": 2, 
+  //     "title": "quis ut nam facilis et officia qui", 
+  //     "completed": true 
+  //   }, 
+  //   { "id": 3, 
+  //     "title": "fugiat veniam minus", 
+  //     "completed": false 
+  //   }
+  // ]
 
-  const [todos, setTodos] = useState(DEFAULT_TODOS)
+  const [todos, setTodos] = useState([])
   const [input, setInput] = useState('')
 
 
@@ -33,12 +33,26 @@ const App = () => {
     event.preventDefault()
     // console.log(input)
     const newTodo = {
-      id: todos.length + 1,
+      id: crypto.randomUUID(),
       title: input,
       completed: false
     }
     setTodos([...todos, newTodo])
     setInput('')
+  }
+
+
+  const handleRemoveTodo = (event) => {
+    const idSelected = event.target.dataset.id
+
+    const newTodos = todos.filter(todo => todo.id !== idSelected)
+    setTodos(newTodos)
+
+
+
+
+
+    // console.log("Eliminando tareas", idSelected)
   }
 
   return (
@@ -59,14 +73,19 @@ const App = () => {
         />
       </form>
 
-      <div className='flex justify-between '>
-        <span className='font-bold '>3 de 8</span>
-        <button 
-        className='bg-blue-500 rounded-b-lg px-2 py-1 text-white hover:bg-blue-800 duration-300'
-        >
-          Limpiar tareas completadas</button>
-      </div>
+      {/* {todos.length === 0 && 'No hay tareas por hacer'} */}
 
+      {todos.length > 0 && (
+        <div className='flex justify-between '>
+          <span className='font-bold '>3 de 8</span>
+          <button 
+          className='bg-blue-500 rounded-lg px-2 py-1 text-white hover:bg-blue-800 duration-300'
+          >
+            Limpiar tareas completadas
+            </button>
+        </div>
+      )}
+      
       <section className='mt-4'>
         <ul className='flex flex-col gap-2'>
           {todos.map(todo =>{
@@ -80,7 +99,9 @@ const App = () => {
                     {todo.title}
                   </div>
                   <button
-                  className='bg-red-300 rounded-lg px-2 py-2'>
+                  className='bg-red-300 rounded-lg px-2 py-2 cursor-pointer'
+                  data-id={todo.id}
+                  onClick={handleRemoveTodo}>
                     ❌
                   </button>
                   </div>
