@@ -20,13 +20,19 @@ export const renderPeliculas = (peliculas) =>{
                   <strong>Estreno:</strong>  ${pelicula.estreno}              
                 </div>
                 <div class="fs-small">
-                  <strong>Genero:</strong>   ${pelicula.generoId}             
+                  <strong>Genero:</strong>   ${pelicula.genero.nombre}             
                 </div> 
                 <div class="fs-small">
                   <strong>Resumen:</strong>  ${pelicula.estreno}              
                 </div>              
               </td>
-              <td>***</td>
+              <td>
+              <div class ="flex">
+                <button class ="pelicula__edit">✏</button>
+                <button class ="pelicula__remove">❌</button>
+              </div>
+              
+              </td>
               
         </tr>
     

@@ -38,6 +38,9 @@ const App = () => {
       completed: false
     }
     setTodos([...todos, newTodo])
+
+    localStorage.setItem
+
     setInput('')
   }
 
@@ -47,14 +50,36 @@ const App = () => {
 
     const newTodos = todos.filter(todo => todo.id !== idSelected)
     setTodos(newTodos)
-
-
-
-
-
     // console.log("Eliminando tareas", idSelected)
   }
+  const handleCopmplete = (event) => {
+    // console.log('Completando tarea...')
+   const idSelected = event.target.dataset.id
+   const isChecked = event.target.checked
+   
+   const newTodos = todos.map(todo => {
+    if (todo.id === idSelected) {
+      return {
+        ...todo,
+        completed: isChecked
+      }
+    }
+    return todo
+   })
+   setTodos(newTodos)
+  }
 
+const completedTodos =() =>{
+  const completedTodos = todos.filter(todo => todo.completed === true)
+  return completedTodos.length
+
+}
+
+const handleClearTodos = () => {
+  const incompletedTodos = todos.filter(todo => todo.completed === false) 
+  setTodos(incompletedTodos)
+}
+   
   return (
     <main 
     className='bg-yellow-100 w-full max-w-sm mx-auto mt-10 border border-yellow-600 rounded-lg shadow-lg p-4'>
@@ -77,9 +102,14 @@ const App = () => {
 
       {todos.length > 0 && (
         <div className='flex justify-between '>
-          <span className='font-bold '>3 de 8</span>
+          <span className='font-bold '>
+            
+            {completedTodos()} de {todos.length} tareas completadas
+
+          </span>
           <button 
           className='bg-blue-500 rounded-lg px-2 py-1 text-white hover:bg-blue-800 duration-300'
+          onClick={handleClearTodos}
           >
             Limpiar tareas completadas
             </button>
@@ -92,10 +122,14 @@ const App = () => {
             return(
               <li className='flex' key={todo.id}>
                 <input type="checkbox" 
+                checked={todo.completed}
+                onChange={handleCopmplete}
                 className='mr-2'
+                data-id ={todo.id}
                 />
                 <div className='w-full flex justify-between items-center'> 
-                  <div className=''>
+                  <div 
+                  className={`${todo.completed ? 'line-through': ''}`}>
                     {todo.title}
                   </div>
                   <button

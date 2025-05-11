@@ -10,7 +10,7 @@ function App() {
       <Header title='Citas medicas para mascotas'/>
 
       <main className='container m-auto flex gap-12 py-5'>
-        <Appointments />
+        <Appointments/>
       </main>    
     </>
   )

@@ -12,6 +12,12 @@
   .fs-small{
     font-size: .8rem
   }
+  .flex{
+    display: flex;
+    gap: .5rem;
+  }
+
+
 </style>
 </head>
 <body>
@@ -34,7 +40,7 @@
         <table>
           <thead>
             <tr>
-              <th>#</th>
+              <th>//</th>
               <th>Imagen</th>
               <th>Nombre</th>
               <th>Acciones</th>
@@ -46,11 +52,11 @@
         </table>
       </div>
       <div>
-        <form action="">
+        <form action="" id="peliculasForm">
           <h2>Nueva Pelicula</h2>
 
           <input type="text" name="nombre" placeholder="Name" required>
-          <input type="text" name="image" placeholder="Imagen" required>
+          <input type="text" name="imagen" placeholder="Imagen" required>
           <input type="date" name="estreno" placeholder="Estreno" required>
           <select name="genero" required id="">
             <option value="">Selecciona un genero</option>

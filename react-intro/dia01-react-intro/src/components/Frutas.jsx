@@ -1,0 +1,1 @@
+export const LISTA_DE_FRUTAS = ['Manzanas', 'Peras', 'Naranjas', 'Kiwi']

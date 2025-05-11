@@ -1,8 +1,17 @@
 import React from 'react'
+import AppointmentsForm from '../components/apointments/AppointmentsForm'
+import AppointmentsList from '../components/apointments/AppointmentsList'
 
 const Appointments = () => {
   return (
-    <div>Appointments</div>
+    <>
+      <AppointmentsForm/>
+
+      <AppointmentsList/>
+
+
+
+    </>
   )
 }
 
